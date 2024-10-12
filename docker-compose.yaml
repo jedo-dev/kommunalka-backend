@@ -9,4 +9,4 @@ services:
     ports:
       - "4444:4444"
     environment:
-      - MONGO_URL=${{ secrets.MONGOURL }}
+      - MONGOURL=${{ secrets.MONGOURL }}

@@ -18,7 +18,7 @@ jobs:
 
       - name: 🚀 Deploy with Docker Compose
         env:
-          MONGO_URL: ${{ secrets.MONGOURL }}
+          MONGOURL: ${{ secrets.MONGOURL }}
         run: |
           echo "Starting Docker Compose for backend..."
           docker-compose up -d --build
