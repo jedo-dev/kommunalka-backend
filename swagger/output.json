@@ -1,0 +1,330 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Kommunalka API",
+    "description": "запроы для приложения",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4444/"
+    }
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "alex@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "12345"
+                }
+              },
+              "required": [
+                "email",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/register"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/upload": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/posts": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "delete": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "patch": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/bills": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UtilityBill": {
+        "type": "object",
+        "properties": {
+          "hotWater": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "function"
+              },
+              "required": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          "coldWater": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "function"
+              },
+              "required": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          "electric": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "function"
+              },
+              "required": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          "addPayment": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "function"
+              },
+              "default": {
+                "type": "array",
+                "example": [],
+                "items": {}
+              }
+            }
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "ref": {
+                "type": "string",
+                "example": "User"
+              },
+              "required": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          "createDate": {
+            "type": "function"
+          }
+        }
+      },
+      "UtilityBills": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "hotWater": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "function"
+                },
+                "required": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            },
+            "coldWater": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "function"
+                },
+                "required": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            },
+            "electric": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "function"
+                },
+                "required": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            },
+            "addPayment": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "function"
+                },
+                "default": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                }
+              }
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "ref": {
+                  "type": "string",
+                  "example": "User"
+                },
+                "required": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            },
+            "createDate": {
+              "type": "function"
+            }
+          }
+        }
+      },
+      "register": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "example": "string"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "string"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "example": "string"
+          },
+          "email": {
+            "type": "string",
+            "example": "string"
+          }
+        }
+      },
+      "login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "alex@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "12345"
+          }
+        }
+      },
+      "Changes": {
+        "type": "object",
+        "properties": {
+          "changes": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "example": "test"
+              },
+              "done": {
+                "type": "boolean",
+                "example": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

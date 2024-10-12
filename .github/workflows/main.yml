@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Deploy Backend
+    runs-on: [self-hosted]
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 🔨 Build Docker image
+        run: |
+          echo "Building Docker image for backend..."
+          docker build --pull --rm -f "Dockerfile" -t kommunalka-backend:latest "."
+
+      - name: 🚀 Deploy with Docker Compose
+        env:
+          MONGO_URL: ${{ secrets.MONGOURL }}
+        run: |
+          echo "Starting Docker Compose for backend..."
+          docker-compose up -d --build

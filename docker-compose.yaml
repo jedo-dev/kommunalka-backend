@@ -1,0 +1,12 @@
+version: '3'
+services:
+  kommunalka-backend:
+    build:
+      context: .
+    image: kommunalka-backend:latest
+    container_name: kommunalka-backend
+    restart: unless-stopped
+    ports:
+      - "4444:4444"
+    environment:
+      - MONGO_URL=${{ secrets.MONGOURL }}
