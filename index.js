@@ -10,7 +10,7 @@ import { loginValidation, postCreateValidation, registerValidation } from './val
 import { checkAuth, handleValidatopnErrors } from './utils/index.js';
 mongoose.set('strictQuery', true);
 mongoose
-  .connect(process.env.MONGOURL)
+  .connect(process.env.MONGO_URL)
   .then((rea) => console.log('connected'))
   .catch(() => console.log('not connected'));
 
