@@ -6,8 +6,10 @@ import multer from 'multer';
 import swaggerUi from 'swagger-ui-express';
 import { PostController, UsersController, UtilityBillsControllers } from './controllers/index.js';
 import { loginValidation, postCreateValidation, registerValidation } from './validations/auth.js';
-
+import dotenv from 'dotenv';
 import { checkAuth, handleValidatopnErrors } from './utils/index.js';
+
+dotenv.config();
 mongoose.set('strictQuery', true);
 console.log(`here`,process.env.MONGO_URL)
 mongoose
