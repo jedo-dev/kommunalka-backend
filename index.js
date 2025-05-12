@@ -11,7 +11,7 @@ import { checkAuth, handleValidatopnErrors } from './utils/index.js';
 mongoose.set('strictQuery', true);
 mongoose
   .connect(process.env.MONGO_URL)
-  .then((rea) => console.log('connected'))
+  .then((rea) => console.log('connected '))
   .catch(() => console.log('not connected'));
 
 const app = express();
