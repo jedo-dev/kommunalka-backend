@@ -10,6 +10,7 @@ import dotenv from 'dotenv';
 import { checkAuth, handleValidatopnErrors } from './utils/index.js';
 
 dotenv.config();
+
 mongoose.set('strictQuery', true);
 console.log(`here`,process.env.MONGO_URL)
 mongoose
